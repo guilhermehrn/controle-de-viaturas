@@ -60,7 +60,8 @@ public class Cidade extends Local{
 	 * Adiciona uma cidade à lista de regiões da cidade
 	 * @param r
 	 */
-	public void adicionarRegiao(Regiao r) {
+	public void adicionarRegiao(int id, String s) {
+		Regiao r = new Regiao(id, s);
 		
 		this.regioes.add(r);
 	}
@@ -72,6 +73,16 @@ public class Cidade extends Local{
 	public void removerRegiao(int pos){
 		
 		this.regioes.remove(pos);
+	}
+	
+	/**
+	 * Localiza a região pelo id
+	 * @param id
+	 * @return
+	 * @throws IndexOutOfBoundsException
+	 */
+	public Regiao localizarRegiao(int id) throws IndexOutOfBoundsException {
+		return regioes.get(id);
 	}
 	
 

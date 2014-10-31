@@ -11,24 +11,41 @@ public class Bairro extends Local {
 
 	ArrayList<Logradouro> logradouros;
 	
-	public Bairro () {
-		this.logradouros = new ArrayList<Logradouro>();
+	public Bairro(int id, String desc, ArrayList<Logradouro> l) {
+		super(id, desc);
+		logradouros = l;
 	}
 	
-	public Bairro (ArrayList<Logradouro> l) {
-		this.logradouros = l;
+	public Bairro(int id, String desc) {
+		this(id, desc, new ArrayList<Logradouro>());
+	}
+	
+	public Bairro() {
+		this(0, "", new ArrayList<Logradouro>());
 	}
 	
 	public void setLogradouro(ArrayList<Logradouro> l) {
 		this.logradouros = l;
 	}
 	
-	public void adicionarLogradouro(Logradouro l) {
+	public void adicionarLogradouro(int id, String tipo, String desc) {
+		Logradouro l = new Logradouro(id, tipo, desc);
+		
 		logradouros.add(l);
 	}
 	
 	public void removerLogradouro(int pos){
 		logradouros.remove(pos);
+	}
+	
+	/**
+	 * Localiza o logradouro pelo id
+	 * @param id
+	 * @return
+	 * @throws IndexOutOfBoundsException
+	 */
+	public Logradouro localizarLogradouro(int id) throws IndexOutOfBoundsException {
+		return logradouros.get(id);
 	}
 	
 	@Override
