@@ -30,9 +30,10 @@ public class Regiao extends Local {
 	 * Adiciona um bairro à região.
 	 * @param b
 	 */
-	public void adicionarBairro(int id, String desc) {
+	public Bairro adicionarBairro(int id, String desc) {
 		Bairro b = new Bairro(id, desc);
 		bairros.add(b);
+		return b;
 	}
 	
 	/**

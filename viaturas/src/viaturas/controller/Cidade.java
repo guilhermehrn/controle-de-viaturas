@@ -60,10 +60,12 @@ public class Cidade extends Local{
 	 * Adiciona uma cidade à lista de regiões da cidade
 	 * @param r
 	 */
-	public void adicionarRegiao(int id, String s) {
+	public Regiao adicionarRegiao(int id, String s) {
 		Regiao r = new Regiao(id, s);
 		
 		this.regioes.add(r);
+		
+		return r;
 	}
 	
 	/**

@@ -28,10 +28,12 @@ public class Bairro extends Local {
 		this.logradouros = l;
 	}
 	
-	public void adicionarLogradouro(int id, String tipo, String desc) {
+	public Logradouro adicionarLogradouro(int id, String tipo, String desc) {
 		Logradouro l = new Logradouro(id, tipo, desc);
 		
 		logradouros.add(l);
+		
+		return l;
 	}
 	
 	public void removerLogradouro(int pos){
