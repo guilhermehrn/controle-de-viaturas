@@ -31,5 +31,18 @@ public class Local {
 		this.descricao = descricao;
 	}
 	
+	@Override
+	public String toString() {
+		return descricao;
+	}
+	
+	public Boolean idCorresponde (int id) {
+		return this.id == id;
+	}
+	
+	public Boolean descricaoContem(String texto) {
+		return this.descricao.contains(texto);
+	}
+	
 	
 }
