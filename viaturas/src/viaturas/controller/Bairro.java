@@ -6,18 +6,24 @@ public class Bairro {
 
 	ArrayList<Logradouro> logradouros;
 	
+	public Bairro () {
+		this.logradouros = new ArrayList<Logradouro>();
+	}
+	
+	public Bairro (ArrayList<Logradouro> l) {
+		this.logradouros = l;
+	}
+	
 	public void setLogradouro(ArrayList<Logradouro> l) {
 		this.logradouros = l;
 	}
 	
-	public void adicionarRegiao(Logradouro l) {
-		
-		//TODO adicionar logradouro ao arraylist
+	public void adicionarLogradouro(Logradouro l) {
+		logradouros.add(l);
 	}
 	
-	public void removerLogradouro(int id){
-		
-		// TODO: remover logradouro pelo id
+	public void removerLogradouro(int pos){
+		logradouros.remove(pos);
 	}
 	
 }

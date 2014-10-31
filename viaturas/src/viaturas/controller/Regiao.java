@@ -6,14 +6,20 @@ public class Regiao extends Local {
 
 	ArrayList<Bairro> bairros;
 	
-	public void adicionarBairro(Bairro b) {
-		
-		//TODO adicionar bairro ao arraylist
+	public Regiao() {
+		bairros = new ArrayList<Bairro>();
 	}
 	
-	public void removerBairro(int id){
-		
-		// TODO: remover bairro pelo id
+	public Regiao(ArrayList<Bairro> b) {
+		bairros = b;
+	}
+	
+	public void adicionarBairro(Bairro b) {
+		bairros.add(b);
+	}
+	
+	public void removerBairro(int pos){
+		bairros.remove(pos);
 	}
 	
 }

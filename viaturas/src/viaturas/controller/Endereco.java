@@ -8,6 +8,12 @@ public class Endereco {
 	
 	private String complemento;
 
+	public Endereco () {
+		this.logradouro = new Logradouro();
+		this.numero = 0;
+		this.complemento = "";
+	}
+	
 	public Logradouro getLogradouro() {
 		return logradouro;
 	}

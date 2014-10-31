@@ -21,6 +21,9 @@ public class Cidade extends Local{
 		// Inicializa UF
 		this.uf = uf;
 		
+		// Inicializa Lista de regiões da cidade
+		regioes = new ArrayList<Regiao>();
+		
 	}
 
 	public String getUf() {
@@ -33,12 +36,12 @@ public class Cidade extends Local{
 	
 	public void adicionarRegiao(Regiao r) {
 		
-		//TODO adicionar região ao arraylist
+		this.regioes.add(r);
 	}
 	
-	public void removerRegiao(int id){
+	public void removerRegiao(int pos){
 		
-		// TODO: remover regiao pelo id
+		this.regioes.remove(pos);
 	}
 	
 	
