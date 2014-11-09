@@ -1,7 +1,7 @@
 package viaturas.testes;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+//import java.lang.reflect.Array;
+//import java.util.ArrayList;
 
 import viaturas.controller.Bairro;
 import viaturas.controller.Cidade;
