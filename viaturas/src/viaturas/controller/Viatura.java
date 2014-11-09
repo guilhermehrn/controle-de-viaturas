@@ -86,10 +86,6 @@ public class Viatura {
 		this.regiaoAtual = regiaoAtual;
 	}
 	
-	public void atenderIncidente(Incidente i) {
-		i.setViaturaDirecionada(this);
-	}
-	
 	public void adicionarPolicial(Policial p) {
 		policiais.add(p);
 	}

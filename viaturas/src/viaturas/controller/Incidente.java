@@ -31,6 +31,8 @@ public class Incidente {
 	
 	private Viatura viaturaDirecionada;
 	
+	private ServicoEmergencia emergencia;
+	
 	public Viatura getViaturaDirecionada() {
 		return viaturaDirecionada;
 	}
@@ -136,6 +138,18 @@ public class Incidente {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+	
+	public void direcionarViatura(Viatura v) {
+		this.setViaturaDirecionada(v);
+	}
+
+	public ServicoEmergencia getEmergencia() {
+		return emergencia;
+	}
+
+	public void acionarEmergencia(ServicoEmergencia emergencia) {
+		this.emergencia = emergencia;
 	}
 
 }
