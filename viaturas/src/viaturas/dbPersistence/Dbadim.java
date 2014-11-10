@@ -6,10 +6,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.Format;
-import java.util.Date;
-
-import javax.xml.crypto.Data;
 
 import viaturas.controller.Bairro;
 import viaturas.controller.Cidade;
@@ -20,8 +16,9 @@ import viaturas.controller.Regiao;
 import viaturas.controller.TipoIncidente;
 
 public class Dbadim {
+	
 	private Connection conn;
-    private Statement stm;
+    private Statement stm; 
  
     /**
      * Realisa uma conexão co o banco
@@ -63,6 +60,7 @@ public class Dbadim {
      * @param incid
      */
    public void inserIncidente (Incidente incid){
+	   
 	   int numero = incid.getNumero();
 	   int tipo = incid.getTipo().getId();
 	   String data = incid.getData().toString();
@@ -123,7 +121,8 @@ public class Dbadim {
     * @return : objeto do inicidente solicitado
     * @throws SQLException
     */
-   public Incidente buscarIncidente (int numero) throws SQLException{
+	public Incidente buscarIncidente (int numero) throws SQLException{
+	   
 	   Incidente aux = new Incidente();
 	   TipoIncidente tinci = new TipoIncidente();
 	   Endereco end = new Endereco();
@@ -131,6 +130,7 @@ public class Dbadim {
 	   Bairro bar =  new Bairro();
 	   Regiao reg = new Regiao();
 	   Cidade cid = new Cidade();
+	   
 	   ResultSet rs = stm.executeQuery("SELECT * FROM incidente WHERE numero = " + numero);
 	   
 	   tinci.setDescricao(rs.getString("observacao"));
@@ -203,8 +203,7 @@ public class Dbadim {
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
-	return null;
-		  
+	return null;		  
    }
    
    /**

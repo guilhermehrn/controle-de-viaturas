@@ -27,9 +27,9 @@ public class Cidade extends Local{
 
 	/**
 	 * Construtor não vazio de cidade
-	 * @param id
-	 * @param descricao
-	 * @param uf
+	 * @param id : identificador da cidade
+	 * @param descricao : nome da cidade
+	 * @param uf : estado ao qual a cidade pertence.
 	 */
 	public Cidade(int id, String descricao, String uf) {
 		super(id, descricao);
@@ -50,7 +50,7 @@ public class Cidade extends Local{
 	
 	/**
 	 * Inicializa a lista de regiões da cidade a partir de uma lista de regiões existente.
-	 * @param r
+	 * @param r : array contedendo a regiões.
 	 */
 	public void setRegioes(ArrayList<Regiao> r) {
 		this.regioes = r;
@@ -58,7 +58,9 @@ public class Cidade extends Local{
 	
 	/**
 	 * Adiciona uma cidade à lista de regiões da cidade
-	 * @param r
+	 * @param id : identificador da cidade
+	 * @param s : Nome da região
+	 * @return :  retorna um obijeto do tipo região.
 	 */
 	public Regiao adicionarRegiao(int id, String s) {
 		Regiao r = new Regiao(id, s);
@@ -70,7 +72,7 @@ public class Cidade extends Local{
 	
 	/**
 	 * Exclui a região que ocupa a posição "pos" na lista de regiões da cidade.
-	 * @param pos
+	 * @param pos : posiçaõ do elemento a ser removido do array de regioes.
 	 */
 	public void removerRegiao(int pos){
 		
@@ -79,8 +81,8 @@ public class Cidade extends Local{
 	
 	/**
 	 * Localiza a região pelo id
-	 * @param id
-	 * @return
+	 * @param id : identificador da Região
+	 * @return :  retorna uma obijeto que representa a região encontrada.
 	 * @throws IndexOutOfBoundsException
 	 */
 	public Regiao localizarRegiao(int id) throws IndexOutOfBoundsException {
