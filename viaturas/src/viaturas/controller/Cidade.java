@@ -49,6 +49,13 @@ public class Cidade extends Local{
 	}
 	
 	/**
+	 * Edita a uf da cidade.
+	 * @param uf nova estado da federação.
+	 */
+	public void setUf(String uf){
+		this.uf = uf;
+	}
+	/**
 	 * Inicializa a lista de regiões da cidade a partir de uma lista de regiões existente.
 	 * @param r : array contedendo a regiões.
 	 */

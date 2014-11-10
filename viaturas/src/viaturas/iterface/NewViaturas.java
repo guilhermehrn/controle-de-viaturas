@@ -27,10 +27,10 @@ public class NewViaturas {
 		op = scanIn.nextLine();
 		
 		if (op.equals("1")){
-			incidente.registrarIncidente();
+			//incidente.registrarIncidente();
 		}
 		else if (op.equals("2")){
-			relatar_dados.relatarDados();
+			//relatar_dados.relatarDados();
 		}
 		else {
 			System.out.println("Opção inválida");

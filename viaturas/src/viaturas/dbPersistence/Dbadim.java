@@ -116,6 +116,19 @@ public class Dbadim {
    }
    
    /**
+    * Faz uma modificação qualquer diretamente no banco
+    * @param sql comando sql.
+    */
+   public void modificaLinhabanco(String sql){
+	   try{
+		   this.stm.executeUpdate(sql);
+	   }catch (SQLException e){
+		   e.printStackTrace();
+		   
+	   }
+   }
+   
+   /**
     * Busca um incidete atraves de seu ID.
     * @param numero :  Id do Incidente
     * @return : objeto do inicidente solicitado
