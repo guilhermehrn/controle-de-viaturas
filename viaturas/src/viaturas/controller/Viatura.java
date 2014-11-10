@@ -3,7 +3,7 @@ package viaturas.controller;
 import java.util.ArrayList;
 
 public class Viatura {
-
+	private int numero;
 	private String renavam;
 	private String placa;
 	private String modelo;
@@ -11,9 +11,11 @@ public class Viatura {
 	private String cor;
 	private String fabricante;
 	private Regiao regiaoAtual;
+	
 	private ArrayList<Policial> policiais;
 	
-	public Viatura(String ren, String placa, String modelo, int ano, String fabr, Regiao regiao, ArrayList<Policial> pol) {
+	public Viatura(int numero, String ren, String placa, String modelo, int ano, String fabr, Regiao regiao, ArrayList<Policial> pol) {
+		this.setNumero(numero);
 		this.renavam = ren;
 		this.placa = placa;
 		this.ano = ano;
@@ -23,13 +25,21 @@ public class Viatura {
 	}
 	
 	public Viatura() {
-		this("", "", "", 0, "", new Regiao(), new ArrayList<Policial>());
+		this(0,"", "", "", 0, "", new Regiao(), new ArrayList<Policial>());
 	}
 	
 	public Viatura(String placa, String modelo) {
-		this("", placa, modelo, 0, "", new Regiao(), new ArrayList<Policial>());
+		this(0,"", placa, modelo, 0, "", new Regiao(), new ArrayList<Policial>());
 	}
 
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	
 	public String getRenavam() {
 		return renavam;
 	}
@@ -92,6 +102,5 @@ public class Viatura {
 	
 	public void removerPolicial(int pos) {
 		policiais.remove(pos);
-	}
-	
+	}	
 }

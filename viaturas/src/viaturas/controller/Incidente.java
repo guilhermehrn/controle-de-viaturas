@@ -33,6 +33,8 @@ public class Incidente {
 	
 	private ServicoEmergencia emergencia;
 	
+	int numero;
+	
 	public Viatura getViaturaDirecionada() {
 		return viaturaDirecionada;
 	}
@@ -73,13 +75,14 @@ public class Incidente {
 		this.solucionado = solucionado;
 	}
 
-	public Incidente(TipoIncidente t, Endereco e, Bairro b, Regiao r, Cidade c, Date d) {
+	public Incidente(TipoIncidente t, Endereco e, Bairro b, Regiao r, Cidade c, Date d, int numero) {
 		this.tipo = t;
 		this.endereco = e;
 		this.bairro = b;
 		this.regiao = r;
 		this.cidade = c;
 		this.data = d;
+		this.numero = numero;
 	}
 	
 	public Incidente() {
@@ -150,6 +153,14 @@ public class Incidente {
 
 	public void acionarEmergencia(ServicoEmergencia emergencia) {
 		this.emergencia = emergencia;
+	}
+
+	public int getNumero() {
+		return this.numero;
+	}
+	
+	public void setNumero (int numero){
+		this.numero = numero;
 	}
 
 }

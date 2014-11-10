@@ -35,6 +35,8 @@ public class TipoIncidente {
 		return super.toString();
 	}
 	
-	
+	public void setId(int id){
+		this.id = id;
+	}
 	
 }
