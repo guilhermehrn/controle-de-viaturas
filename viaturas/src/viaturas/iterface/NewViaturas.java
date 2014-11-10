@@ -1,7 +1,8 @@
-package viaturas.controller;
+package viaturas.iterface;
 
 import java.io.IOException;
 import java.util.Scanner;
+
 
 public class NewViaturas {
 

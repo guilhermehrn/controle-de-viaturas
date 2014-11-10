@@ -17,15 +17,28 @@ public class Logradouro extends Local {
 		this.tipo = "";
 	}
 	
+	/**
+	 * Cria um logradouro com o nome de rua.
+	 * @param id identificador do logradouro.
+	 * @param tipo tipo de logradouro (avenida, rua, alameda...)
+	 * @param descricao nome do logradouro
+	 */
 	public Logradouro(int id, String tipo, String descricao) {
 		super(id, descricao);
 		this.tipo = tipo;
 	}
 	
+	/**
+	 * Retorna o tipo de logradouro
+	 * @return tipo de logradouro.
+	 */
 	public String getTipo(){
 		return this.tipo;
 	}
-	
+	/**
+	 * Edita o tipo do logradouro
+	 * @param t novo tipo.
+	 */
 	public void setTipo(String t) {
 		this.tipo = t;
 	}

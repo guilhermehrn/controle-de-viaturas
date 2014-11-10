@@ -66,7 +66,7 @@ public class Local {
 	}
 	
 	/**
-	 *  return verdadeiro se ID passado como parametro é igual ao ID do objeto instaciado. Falso caso contrario
+	 * return verdadeiro se ID passado como parametro é igual ao ID do objeto instaciado. Falso caso contrario
 	 * @param id : ID a aser comaparado
 	 * @return  true se forem iguais , false caso contrario.
 	 */

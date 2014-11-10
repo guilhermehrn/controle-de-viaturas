@@ -1,4 +1,4 @@
-package viaturas.controller;
+package viaturas.iterface;
 
 public class NewIncidente {
 	void registrarIncidente(){

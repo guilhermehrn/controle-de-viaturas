@@ -22,7 +22,11 @@ public class Policial {
 		// TODO Auto-generated method stub
 		return patente = " " + nome;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPatente() {
 		return patente;
 	}
