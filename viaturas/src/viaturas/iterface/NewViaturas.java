@@ -1,6 +1,7 @@
 package viaturas.iterface;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
@@ -9,8 +10,10 @@ public class NewViaturas {
 	/**
 	 * @param args
 	 * @throws IOException 
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		String op="0";
 		
@@ -30,11 +33,13 @@ public class NewViaturas {
 			//incidente.registrarIncidente();
 		}
 		else if (op.equals("2")){
-			//relatar_dados.relatarDados();
+			relatar_dados.relatarDadosInterface();
 		}
 		else {
 			System.out.println("Opção inválida");
 		}
+		
+		System.out.println("Fim do programa");
 		
 
 	}
