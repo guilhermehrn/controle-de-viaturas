@@ -2,8 +2,12 @@ package viaturas.iterface;
 
 
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Scanner;
+
+import javax.print.attribute.standard.DateTimeAtCreation;
 
 import viaturas.controller.Bairro;
 import viaturas.controller.Cidade;
@@ -20,12 +24,84 @@ import viaturas.dbPersistence.Dbadim;
  *
  */
 public class NewIncidente {
+	private String banco="/home/bruno/gdrive/ufmg/7Semestre/Engenharia de Software/tp/controle-de-viaturas/banco.db";
 	
 	
+	public void inserirIncidente() throws ClassNotFoundException, SQLException{
+		int tipo, num_rua, id;
+		Date data = new Date();
+		String rua, bairro, observ="", cidade, estado, regiao, comple;
+		
+		System.out.println("<<Registrar incidente>>\n");
+		System.out.println("Digite o codigo do tipo de incidente a ser inserido\n");
+		mostrarTiposIncidentes();
+		@SuppressWarnings("resource")
+		Scanner scanIn = new Scanner(System.in);
+		tipo = Integer.parseInt(scanIn.nextLine());
+		
+		System.out.println("Digite a rua:");
+		rua = scanIn.nextLine();
+		
+		System.out.println("Digite o numero do endereco:");
+		num_rua = Integer.parseInt(scanIn.nextLine());
+		
+		System.out.println("Digite o complemento:");
+		comple = scanIn.nextLine();
+		
+		System.out.println("Digite o bairro:");
+		bairro = scanIn.nextLine();
+		
+		System.out.println("Digite a cidade:");
+		cidade = scanIn.nextLine();
+		
+		System.out.println("Digite o estado:");
+		estado = scanIn.nextLine();
+		
+		System.out.println("Digite a região:");
+		regiao = scanIn.nextLine();
+		
+		id = pegarMaiorIDIncidente()+1;
+		System.out.println(id);
+		
+		Incidente incid = new Incidente();
+		incid = registrarIncidente(tipo, rua, num_rua, bairro, observ, cidade, estado, regiao, data, id, comple);
+		salvarIncidente(incid, banco);
+		
+	}
 	
 	public void alocarViaturas(){
 	//TODO	
 	}
+	
+	
+	public void acionarServicosEmergencia(){
+		System.out.println("Servicos de emergencia acionados");
+	}
+	
+	public void mostrarTiposIncidentes () throws ClassNotFoundException, SQLException{
+		String sql;
+		Dbadim db = new Dbadim();
+		ResultSet resultado = null;
+		
+		sql = "select * from tipo_incidente;";
+		db.SQLite(banco);
+		resultado = db.consultar(sql);
+		db.imprimirBusca(resultado);
+	}
+	
+	public int pegarMaiorIDIncidente () throws ClassNotFoundException, SQLException{
+		String sql;
+		Dbadim db = new Dbadim();
+		ResultSet resultado = null;
+		
+		sql = "select max(numero) from incidente;";
+		db.SQLite(banco);
+		resultado = db.consultar(sql);
+		return resultado.getInt(1);
+		//db.imprimirBusca(resultado);
+		
+	}
+	
 	/**
 	 * Cria um novo incidente a nivel de interface.
 	 * @param tipo : tipo de incidente.
