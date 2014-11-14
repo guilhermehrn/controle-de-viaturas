@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
 
-import javax.print.attribute.standard.DateTimeAtCreation;
-
 import viaturas.controller.Bairro;
 import viaturas.controller.Cidade;
 import viaturas.controller.Endereco;
@@ -150,7 +148,8 @@ public class IncidenteCreator {
 	 * @param comple : tipo de imovel onde ocorreu o incidente
 	 * @return retorna o novo incidente formado
 	 */
-	public Incidente registrarIncidente(int tipo, String rua, int num_rua, String bairro, String observ, String cidade,String estado, String regiao, Date data, int id, String comple){
+	public Incidente registrarIncidente(int tipo, String rua, int num_rua, String bairro, String observ, 
+			String cidade, String estado, String regiao, Date data, int id, String comple){
 		Incidente incid;
 		Logradouro log = new Logradouro();
 		Bairro bar = new Bairro();
