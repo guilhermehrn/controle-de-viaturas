@@ -16,15 +16,16 @@ import viaturas.controller.Incidente;
 import viaturas.controller.Logradouro;
 import viaturas.controller.Regiao;
 import viaturas.controller.TipoIncidente;
+import viaturas.controller.Viatura;
 import viaturas.dbPersistence.Dbadim;
 
 /**
- * Classe responsavel por permitir ao usuario informar um novo incidente
+ * Classe responsavel por permiti ao usuario informa um novo incidente
  * @author guilherme
  *
  */
-public class IncidenteCreator {
-	private String banco="db/banco.db";
+public class NewIncidente {
+	private String banco="/home/bruno/gdrive/ufmg/7Semestre/Engenharia de Software/tp/controle-de-viaturas/banco.db";
 	
 	
 	public void inserirIncidente() throws ClassNotFoundException, SQLException{
@@ -65,12 +66,45 @@ public class IncidenteCreator {
 		
 		Incidente incid = new Incidente();
 		incid = registrarIncidente(tipo, rua, num_rua, bairro, observ, cidade, estado, regiao, data, id, comple);
+		
 		salvarIncidente(incid, banco);
 		
 	}
 	
-	public void alocarViaturas(){
-	//TODO	
+	/**
+	 * Aloca uma viatura para o incidente.
+	 * @return :  retorna uma viatura para o caso. Se não tiver viaturas disponivel retorn uma viatura vazia
+	 */
+	public Viatura alocarViaturas(){
+		Dbadim db = new Dbadim();
+		ResultSet resultado = null;
+		
+		Viatura viatura;
+		Viatura viatura2 = new Viatura();
+		int numero;
+		String renavam;
+		String placa;
+		int ano;
+		String modelo;
+		//int status;
+		String fabricante;
+		
+		resultado = db.buscarViaturasDisponiveis();
+		try {
+			numero = resultado.getInt("numero");
+			renavam =  resultado.getString("renavam");
+			placa = resultado.getString("placa");
+			ano = resultado.getInt("ano");
+			modelo = resultado.getString("modelo");
+			//status = resultado.getInt("status");
+			fabricante = resultado.getString("fabricante");
+			viatura = new Viatura(numero,renavam, placa, modelo,ano,fabricante,null,null);
+			db.mudarStatusViatura(numero, 4);
+			return viatura;
+			
+		} catch (SQLException e) {
+			return viatura2;
+		}
 	}
 	
 	
