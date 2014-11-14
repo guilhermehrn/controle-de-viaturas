@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import viaturas.controller.Bairro;
 import viaturas.controller.Cidade;
@@ -135,8 +137,9 @@ public class Dbadim {
     * @param numero :  Id do Incidente
     * @return : objeto do inicidente solicitado
     * @throws SQLException
+ * @throws ParseException 
     */
-	public Incidente buscarIncidente (int numero) throws SQLException{
+	public Incidente buscarIncidente (int numero) throws SQLException, ParseException{
 	   
 	   Incidente aux = new Incidente();
 	   TipoIncidente tinci = new TipoIncidente();
@@ -169,20 +172,16 @@ public class Dbadim {
 	   
 	   aux.setNumero(numero);
 	   
-	  
-	  Date a = (Date) rs.getDate ("data");
-	  //String newstring = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(date);
-	  //String b = a.toString();
-	  //@SuppressWarnings("deprecation")
-	  //Date c = new Date(b);
 	   
-	  // Date a = rs.getDate("data");
-	  // @SuppressWarnings("unused")
-	
-	  // imprimirBusca(rs);
-	   //String newstring = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rs.getDate("data"));
-	 
-	  //aux.setData();
+	   Calendar c = Calendar.getInstance();
+	   String b = rs.getString("data");
+	   SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	   Date l = new Date(0);
+	   c.setTime(formatoData.parse(b));
+	   
+	   aux.setData(c.getTime());
+	  
+	  
 	  
 	   return aux;  
    }
