@@ -1,9 +1,11 @@
 package viaturas.iterface;
 
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -23,13 +25,16 @@ import viaturas.dbPersistence.Dbadim;
  *
  */
 public class IncidenteCreator {
+	
 	private String banco="db/banco.db";
 	
 	
 	public void inserirIncidente() throws ClassNotFoundException, SQLException{
 		int tipo, num_rua, id;
 		Date data = new Date();
-		String rua, bairro, observ="", cidade, estado, regiao, comple;
+		SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar c = Calendar.getInstance();
+		String rua, bairro, observ="", cidade, estado, regiao, comple, dia;
 		
 		System.out.println("<<Registrar incidente>>\n");
 		System.out.println("Digite o codigo do tipo de incidente a ser inserido\n");
@@ -37,6 +42,17 @@ public class IncidenteCreator {
 		@SuppressWarnings("resource")
 		Scanner scanIn = new Scanner(System.in);
 		tipo = Integer.parseInt(scanIn.nextLine());
+		
+		System.out.println("Digite a data [dd/mm/aaaa]:");
+		dia = scanIn.nextLine();
+		
+		try {
+			c.setTime(formatoData.parse(dia));
+			data = c.getTime();
+		} catch (ParseException e) {
+			System.out.println("\n\nErro ao gerar data!\n");
+			e.printStackTrace();
+		}
 		
 		System.out.println("Digite a rua:");
 		rua = scanIn.nextLine();
@@ -64,6 +80,8 @@ public class IncidenteCreator {
 		
 		Incidente incid = new Incidente();
 		incid = registrarIncidente(tipo, rua, num_rua, bairro, observ, cidade, estado, regiao, data, id, comple);
+		
+		
 		
 		salvarIncidente(incid, banco);
 		
@@ -167,7 +185,7 @@ public class IncidenteCreator {
 		tincid.setId(tipo);
 		end = new Endereco(log, num_rua, comple);
 		
-		incid = new Incidente(tincid,end,bar,reg,cid,null,id);
+		incid = new Incidente(tincid,end,bar,reg,cid,data,id);
 		
 		
 		return incid;
