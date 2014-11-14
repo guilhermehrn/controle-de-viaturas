@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import viaturas.controller.Bairro;
 import viaturas.controller.Cidade;
@@ -167,15 +169,20 @@ public class Dbadim {
 	   
 	   aux.setNumero(numero);
 	   
+	  
+	  Date a = (Date) rs.getDate ("data");
+	  //String newstring = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(date);
+	  //String b = a.toString();
+	  //@SuppressWarnings("deprecation")
+	  //Date c = new Date(b);
 	   
-	   //Date a = (Date) rs.getDate ("data");
-	  /// String b = a.toString();
-	  // @SuppressWarnings("deprecation")
-	//Date c = new Date(b);
-	   
-	   
+	  // Date a = rs.getDate("data");
+	  // @SuppressWarnings("unused")
+	
+	  // imprimirBusca(rs);
+	   //String newstring = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rs.getDate("data"));
 	 
-	 //  aux.setData(c);
+	  //aux.setData();
 	  
 	   return aux;  
    }

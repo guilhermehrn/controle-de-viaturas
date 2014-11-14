@@ -19,15 +19,15 @@ public class conect {
 		Incidente b =  new Incidente();
 		db.SQLite("/home/guilherme/git/controle-de-viaturas/banco.db");
 		
-		a.setNumero(6);
+		//a.setNumero(6);
 		//db.modificarIncididente(a);
 		b = db.buscarIncidente(1);
-		System.out.println(b.toString() );
-		System.out.println(b.getNumero() + "   " + b.getBairro().toString());
-		db.mudarStatusViatura(3,3);
-		ResultSet res = db.buscarViaturasDisponiveis();
+		//System.out.println(b.toString() );
+		//System.out.println(b.getNumero() + "   " + b.getBairro().toString());
+		//db.mudarStatusViatura(3,3);
+		//ResultSet res = db.buscarViaturasDisponiveis();
 	
-		db.imprimirBusca(res);
+		//db.imprimirBusca(res);
 	}
 
 }
