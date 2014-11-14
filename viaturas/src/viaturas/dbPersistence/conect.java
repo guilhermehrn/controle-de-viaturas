@@ -17,7 +17,7 @@ public class conect {
 		Dbadim db = new Dbadim();
 		Incidente a = new Incidente();
 		Incidente b =  new Incidente();
-		db.SQLite("/home/guilherme/git/controle-de-viaturas/banco.db");
+		db.SQLite("/home/bruno/gdrive/ufmg/7Semestre/Engenharia de Software/tp/controle-de-viaturas/banco.db");
 		
 		//a.setNumero(6);
 		//db.modificarIncididente(a);

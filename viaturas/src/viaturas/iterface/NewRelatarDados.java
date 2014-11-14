@@ -2,6 +2,7 @@ package viaturas.iterface;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import viaturas.dbPersistence.Dbadim;
 
@@ -11,7 +12,24 @@ import viaturas.dbPersistence.Dbadim;
  *
  */
 public class NewRelatarDados {
-	private String banco;
+	private String banco="/home/bruno/gdrive/ufmg/7Semestre/Engenharia de Software/tp/controle-de-viaturas/banco.db";
+	
+	public void relatarDadosInterface() throws ClassNotFoundException, SQLException{
+		String op="", relato="";
+		int id=0;
+		System.out.println("<<Digite o número correspondente ao incidente que deseja relatar>>");
+		mostrarIncidetes();
+		
+		@SuppressWarnings("resource")
+		Scanner scanIn = new Scanner(System.in);
+		op = scanIn.nextLine();
+		id = Integer.parseInt(op);
+		
+		System.out.println("Digite o relato do incidente:");
+		relato = scanIn.nextLine();
+		
+		relatarDados(relato, id);
+	}
 	
 	/**
 	 * Mostra todos os incidentes no sistema.
@@ -23,7 +41,7 @@ public class NewRelatarDados {
 		Dbadim db = new Dbadim();
 		ResultSet resultado = null;
 		
-		sql = "SELECT * FRON incidente";
+		sql = "SELECT * FROM incidente;";
 		db.SQLite(banco);
 		resultado = db.consultar(sql);
 		db.imprimirBusca(resultado);

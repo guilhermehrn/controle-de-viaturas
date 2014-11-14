@@ -23,7 +23,7 @@ public class Dbadim {
     private Statement stm; 
  
     /**
-     * Realisa uma conexão co o banco
+     * Realisa uma conexão com o banco
      * @param arquivo onde se encontra o arquivo do banco
      * @throws SQLException
      * @throws ClassNotFoundException
