@@ -25,7 +25,7 @@ import viaturas.dbPersistence.Dbadim;
  *
  */
 public class IncidenteCreator {
-	private String banco="/home/bruno/gdrive/ufmg/7Semestre/Engenharia de Software/tp/controle-de-viaturas/banco.db";
+	private String banco="db/banco.db";
 	
 	
 	public void inserirIncidente() throws ClassNotFoundException, SQLException{
