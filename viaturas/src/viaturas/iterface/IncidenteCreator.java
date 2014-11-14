@@ -24,7 +24,7 @@ import viaturas.dbPersistence.Dbadim;
  * @author guilherme
  *
  */
-public class NewIncidente {
+public class IncidenteCreator {
 	private String banco="/home/bruno/gdrive/ufmg/7Semestre/Engenharia de Software/tp/controle-de-viaturas/banco.db";
 	
 	
